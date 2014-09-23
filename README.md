@@ -22,8 +22,9 @@ Specify a route:
 ````javascript
 var util = require('util');
 
-var Route = require('../../../lib/Route');
-var MountPoint = require('../../../lib/MountPoint');
+var dobbs = require('dobbs');
+var Route = dobbs.Route;
+var MountPoint = dobbs.MountPoint;
 
 function Route1 (foo) {
     Route.call(this);
@@ -48,8 +49,8 @@ The second route is preceeded by `Route1`:
 ````javascript
 var util = require('util');
 
-var Route = require('../../../lib/Route');
-var MountPoint = require('../../../lib/MountPoint');
+var Route = dobbs.Route;
+var MountPoint = dobbs.MountPoint;
 
 function Route2 (foo) {
     Route.call(this);
