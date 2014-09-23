@@ -1,8 +1,8 @@
 {
   "name": "dobbs",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "routes loader for express",
-  "main": "index.js",
+  "main": "dobbs.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests"
   },
