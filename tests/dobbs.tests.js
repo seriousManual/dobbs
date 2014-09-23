@@ -89,4 +89,20 @@ describe('routing', function () {
             }).to.throw('could not load predecessor: perkins');
         });
     });
+
+    describe('loadRoutes without routename', function () {
+        it('should throw', function () {
+            expect(function () {
+                new dobbs.RoutesLoader(path.join(__dirname, './testdata/routesNoName'), new dobbs.Injector()).load();
+            }).to.throw('route has no unique identifier');
+        });
+    });
+
+    describe('loadRoutes with non unique names', function () {
+        it('should throw', function () {
+            expect(function () {
+                new dobbs.RoutesLoader(path.join(__dirname, './testdata/routesNonUnique'), new dobbs.Injector()).load();
+            }).to.throw('route already exists: fooRoute');
+        });
+    });
 });
