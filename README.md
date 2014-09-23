@@ -49,6 +49,7 @@ The second route is preceeded by `Route1`:
 ````javascript
 var util = require('util');
 
+var dobbs = require('dobbs');
 var Route = dobbs.Route;
 var MountPoint = dobbs.MountPoint;
 
