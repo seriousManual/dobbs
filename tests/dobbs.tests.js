@@ -22,8 +22,8 @@ describe('routing', function () {
             appMock = createAppMock();
 
             rl = new dobbs.RoutesLoader(path.join(__dirname, './testdata/routes'), i)
-                    .load()
-                    .mount(appMock);
+                .load()
+                .mount(appMock);
         });
 
         it('should', function () {
@@ -80,7 +80,7 @@ describe('routing', function () {
             i.register('bar', 'barValue');
             appMock = createAppMock();
             rl = new dobbs.RoutesLoader(path.join(__dirname, './testdata/routesFaulty'), i)
-                    .load();
+                .load();
         });
 
         it('should throw', function () {
