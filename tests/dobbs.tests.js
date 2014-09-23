@@ -26,7 +26,7 @@ describe('routing', function () {
                     .mount(appMock);
         });
 
-        it('should', function () {
+        it('should mount the route', function () {
             expect(appMock.get).to.be.calledWithExactly('/route2', 'route to route1', 'route to route2');
             expect(appMock.get).to.be.calledWithExactly('/route1', 'route to route1');
         });
@@ -83,7 +83,7 @@ describe('routing', function () {
                     .load();
         });
 
-        it('should throw', function () {
+        it('should throw if predecessor is not found', function () {
             expect(function () {
                 rl.mount(appMock);
             }).to.throw('could not load predecessor: perkins');
@@ -91,7 +91,7 @@ describe('routing', function () {
     });
 
     describe('loadRoutes without routename', function () {
-        it('should throw', function () {
+        it('should throw if unique identifier is not set', function () {
             expect(function () {
                 new dobbs.RoutesLoader(path.join(__dirname, './testdata/routesNoName'), new dobbs.Injector()).load();
             }).to.throw('route has no unique identifier');
@@ -99,7 +99,7 @@ describe('routing', function () {
     });
 
     describe('loadRoutes with non unique names', function () {
-        it('should throw', function () {
+        it('should throw if route is non unique', function () {
             expect(function () {
                 new dobbs.RoutesLoader(path.join(__dirname, './testdata/routesNonUnique'), new dobbs.Injector()).load();
             }).to.throw('route already exists: fooRoute');
