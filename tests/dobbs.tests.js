@@ -105,4 +105,22 @@ describe('routing', function () {
             }).to.throw('route already exists: fooRoute');
         });
     });
+
+    describe('loadRoutes with Injector Target', function () {
+        var i, appMock, rl;
+
+        before(function () {
+            i = new dobbs.Injector();
+            i.register('gna', 'gnaValue');
+            appMock = createAppMock();
+
+            rl = new dobbs.RoutesLoader(path.join(__dirname, './testdata/routeWithInjectorPred'), i)
+                .load()
+                .mount(appMock);
+        });
+
+        it('should mount the route', function () {
+            expect(appMock.get).to.be.calledWithExactly('/route1', 'gnaValue', 'gnaRoute');
+        });
+    });
 });

@@ -1,6 +1,7 @@
 var MountPoint = require('../../../lib/MountPoint');
 
-function Route1 () {}
+function Route1 () {
+}
 
 Route1.prototype.mountPoint = function () {
     return new MountPoint('get', '/route1', ['perkins']);

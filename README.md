@@ -71,3 +71,72 @@ Route2.routeName = 'Route2';
 
 module.exports = Route2;
 ````
+
+## Injected
+
+A route can also be preceeded by a value from the injector:
+
+bootstrap:
+````javascript
+var util = require('util');
+
+var dobbs = require('dobbs');
+var Route = dobbs.Route;
+var MountPoint = dobbs.MountPoint;
+
+var express = require('express');
+
+var app = express();
+
+var injector = new dobbs.Injector();
+injector.register('foo', 'fooValue');
+injector.register('middleware', MiddlewareFactory);
+
+new dobbs.RoutesLoader(path.join(__dirname, './routes'), injector)
+    .load()
+    .mount(app);
+
+````
+MiddlewareFactory:
+````javascript
+var util = require('util');
+
+var dobbs = require('dobbs');
+
+function MiddlewareFactory(foo) {
+    dobbs.Injector.Factory.call(this);
+
+    this._foo = foo;
+}
+
+util.inherits(MiddlewareFactory, dobbs.Injector.Factory);
+
+MiddlewareFactory.prototype.create = function() {
+    return function(req, res, next) {
+        ...
+    }
+};
+
+module.exports = MiddlewareFactory;
+````
+
+Route:
+````javascript
+function Route2 (foo) {
+    Route.call(this);
+
+    this._foo = foo;
+}
+
+util.inherits(Route2, Route);
+
+Route2.prototype.mountPoint = function () {
+    return new MountPoint('get', '/route2', ['middleware']);
+};
+
+Route2.prototype.route = function (req, res, next) {};
+
+Route2.routeName = 'Route2';
+
+module.exports = Route2;
+````

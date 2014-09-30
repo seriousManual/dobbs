@@ -13,7 +13,8 @@ Route1.prototype.mountPoint = function () {
     return new MountPoint('get', '/route1', []);
 };
 
-Route1.prototype.route = function (req, res, next) {};
+Route1.prototype.route = function (req, res, next) {
+};
 
 Route1.routeName = 'fooRoute';
 
