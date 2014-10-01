@@ -1,6 +1,6 @@
 {
   "name": "dobbs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "routes loader for express",
   "main": "dobbs.js",
   "scripts": {
