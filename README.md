@@ -1,5 +1,9 @@
 # dobbs [![Build Status](https://travis-ci.org/zaphod1984/dobbs.png)](https://travis-ci.org/zaphod1984/dobbs)
 
+[![NPM](https://nodei.co/npm/dobbs.png)](https://nodei.co/npm/dobbs/)
+
+[![NPM](https://nodei.co/npm-dl/dobbs.png?months=3)](https://nodei.co/npm/dobbs/)
+
 dobbs is a routesloader for express that is as opinionated as Prime Overseer Joe Dobbs himself.
 
 Utilizes the `furg` Injector to specify dependencies for routes.
